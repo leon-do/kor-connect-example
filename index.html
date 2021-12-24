@@ -1,0 +1,23 @@
+<script>
+  fetch("https://leondo123c.korconnect.io/GraphFiat-RapidApi/", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": "Egn2tzYGUO8Fo78DPpraY4G00gQo3nim3P1QeR2S",
+    },
+    body: JSON.stringify({
+      url: "https://api.thegraph.com/subgraphs/name/amxx/eip721-subgraph",
+      query:
+        '{ account(id: "0x134acfa283884ae586f96e24d40dd6c894a620bb") { tokens { uri identifier } } }',
+    }),
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .then((data) => {
+      console.log(data.data.account.tokens)
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+</script>
